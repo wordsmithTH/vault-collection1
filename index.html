@@ -1,458 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Vault Collection — Graded Marvel Keys For Sale</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#14171F;--ink-deep:#0B0D12;--paper:#F2EFE6;--paper-dim:#CFCABD;--grade-yellow:#F4C430;--tag-red:#C8312A;--slab-edge:#3A4050;--line:#2B3040;}
-*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
-body{background:var(--ink);color:var(--paper);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
-header{position:sticky;top:0;z-index:50;background:rgba(20,23,31,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1180px;margin:0 auto;}
-.brand{font-family:"Anton",sans-serif;font-size:20px;display:flex;align-items:center;gap:10px;}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--grade-yellow);}
-.nav-links{display:flex;gap:28px;font-size:13px;font-weight:600;}
-.nav-links a{opacity:.7;}.nav-links a:hover{opacity:1;}
-.nav-cta{background:var(--grade-yellow);color:var(--ink-deep);font-size:13px;font-weight:700;padding:10px 18px;border-radius:3px;}
-@media(max-width:700px){.nav-links{display:none;}}
-.hero{max-width:1180px;margin:0 auto;padding:80px 28px 60px;}
-.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--grade-yellow);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:"";width:24px;height:1px;background:var(--grade-yellow);}
-.hero h1{font-family:"Anton",sans-serif;font-size:clamp(36px,6vw,72px);line-height:.98;text-transform:uppercase;}
-.hero h1 .accent{color:var(--grade-yellow);}
-.hero-sub{margin-top:20px;font-size:16px;line-height:1.65;color:var(--paper-dim);max-width:580px;}
-.hero-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;}
-.btn{font-weight:700;font-size:13px;padding:14px 24px;border-radius:3px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;}
-.btn:hover{transform:translateY(-1px);}
-.btn-primary{background:var(--grade-yellow);color:var(--ink-deep);}
-.btn-ghost{border:1px solid var(--slab-edge);color:var(--paper);}
-.hero-stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap;}
-.stat-num{font-family:"Anton",sans-serif;font-size:28px;}
-.stat-label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;color:var(--paper-dim);text-transform:uppercase;margin-top:2px;}
-.section{padding:72px 0;}
-.section-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grade-yellow);margin-bottom:10px;}
-.section-title{font-family:"Anton",sans-serif;font-size:clamp(26px,4vw,40px);text-transform:uppercase;line-height:1.05;}
-.section-desc{margin-top:12px;color:var(--paper-dim);font-size:15px;line-height:1.6;max-width:600px;}
-.filter-bar{display:flex;gap:10px;margin:32px 0 0;flex-wrap:wrap;}
-.filter-btn{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.5px;text-transform:uppercase;padding:8px 16px;border:1px solid var(--slab-edge);border-radius:20px;color:var(--paper-dim);transition:all .15s;}
-.filter-btn:hover{border-color:var(--grade-yellow);color:var(--paper);}
-.filter-btn.active{background:var(--grade-yellow);color:var(--ink-deep);border-color:var(--grade-yellow);font-weight:700;}
-.title-group{margin-bottom:64px;}
-.title-group-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--grade-yellow);}
-.title-group-name{font-family:"Anton",sans-serif;font-size:clamp(18px,3vw,28px);text-transform:uppercase;}
-.title-group-count{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grade-yellow);border:1px solid var(--grade-yellow);padding:3px 10px;border-radius:2px;flex-shrink:0;}
-.title-group-empty{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--paper-dim);padding:28px;border:1px dashed var(--slab-edge);border-radius:6px;text-align:center;}
-.comic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
-.comic-card{background:var(--ink-deep);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;}
-.comic-card:hover{transform:translateY(-4px);border-color:var(--slab-edge);box-shadow:0 16px 32px -12px rgba(0,0,0,.6);}
-.comic-status-flag{position:absolute;top:10px;left:10px;z-index:3;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:3px;background:transparent;border:1px solid var(--paper-dim);color:var(--paper);}
-.comic-status-flag.ss{background:var(--grade-yellow);color:var(--ink-deep);border-color:var(--grade-yellow);}
-.comic-cover{aspect-ratio:2/3;position:relative;overflow:hidden;background:var(--ink);}
-.comic-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
-.comic-card:hover .comic-cover img{transform:scale(1.03);}
-.comic-label{background:var(--paper);color:var(--ink-deep);padding:12px 14px 14px;}
-.comic-label-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
-.comic-title{font-weight:700;font-size:13px;line-height:1.25;}
-.comic-meta{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#5b5648;margin-top:3px;}
-.comic-sig{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--tag-red);margin-top:2px;font-weight:600;}
-.grade-chip{font-family:"Anton",sans-serif;font-size:14px;background:var(--ink-deep);color:var(--grade-yellow);padding:2px 8px;border-radius:2px;flex-shrink:0;line-height:1.4;}
-.comic-label-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px dashed #CFCABD;}
-.comic-price{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:#5b5648;}
-.comic-action{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-deep);border-bottom:1.5px solid var(--ink-deep);padding-bottom:1px;}
-.bundle-section{padding:72px 0;}
-.bundle-frame{border:1px solid var(--slab-edge);border-radius:14px;padding:56px 48px;background:radial-gradient(ellipse 500px 260px at 20% 0%,rgba(244,196,48,.07),transparent);display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
-@media(max-width:800px){.bundle-frame{grid-template-columns:1fr;padding:32px 24px;}}
-.bundle-tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grade-yellow);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.bundle-tag::before{content:"●";font-size:7px;}
-.bundle-frame h2{font-family:"Anton",sans-serif;font-size:clamp(26px,4vw,42px);text-transform:uppercase;line-height:1.05;}
-.bundle-frame p{color:var(--paper-dim);margin-top:14px;line-height:1.65;font-size:15px;}
-.bundle-facts{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;}
-.bundle-fact-num{font-family:"Anton",sans-serif;font-size:24px;}
-.bundle-fact-label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--paper-dim);}
-.bundle-cta-block{background:var(--ink-deep);border:1px solid var(--slab-edge);border-radius:8px;padding:28px;text-align:center;min-width:220px;}
-.bundle-cta-block .clabel{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--paper-dim);}
-.bundle-cta-block .price{font-family:"Anton",sans-serif;font-size:34px;color:var(--grade-yellow);margin:8px 0 4px;}
-.bundle-cta-block .price-note{font-size:11px;color:var(--paper-dim);margin-bottom:18px;}
-.trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 0;}
-.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
-@media(max-width:700px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
-.ti-label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--grade-yellow);margin-bottom:5px;}
-.ti-text{font-size:13px;color:var(--paper-dim);line-height:1.5;}
-.contact-section{padding:80px 0 100px;}
-.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;}
-@media(max-width:800px){.contact-grid{grid-template-columns:1fr;gap:32px;}}
-.ci-label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grade-yellow);margin-bottom:5px;}
-.ci-text{font-size:14px;color:var(--paper-dim);line-height:1.6;margin-bottom:24px;}
-form{display:flex;flex-direction:column;gap:16px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-@media(max-width:500px){.form-row{grid-template-columns:1fr;}}
-.field label{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--paper-dim);margin-bottom:7px;}
-.field input,.field select,.field textarea{width:100%;background:var(--ink-deep);border:1px solid var(--slab-edge);border-radius:4px;padding:11px 12px;color:var(--paper);font-family:"IBM Plex Sans",sans-serif;font-size:13px;transition:border-color .15s;}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--grade-yellow);}
-.field textarea{resize:vertical;min-height:100px;}
-.submit-btn{background:var(--grade-yellow);color:var(--ink-deep);font-weight:700;font-size:13px;padding:14px;border-radius:4px;}
-.success-msg{display:none;background:rgba(244,196,48,.1);border:1px solid var(--grade-yellow);border-radius:4px;padding:14px;font-size:13px;color:var(--grade-yellow);margin-top:8px;}
-footer{border-top:1px solid var(--line);padding:32px 0;}
-.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.fbrand{font-family:"Anton",sans-serif;font-size:15px;}
-.fnote{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--paper-dim);}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Vault — Comic Collection</title>
+<meta name="description" content="A private vault of 752 collected comics — CGC-graded keys, signature series, and unsorted finds.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <nav class="nav">
-    <div class="brand"><span class="dot"></span>THE VAULT COLLECTION</div>
-    <div class="nav-links">
-      <a href="#catalog">Catalog</a>
-      <a href="#bundle">Buy It All</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <a href="#contact" class="nav-cta">Make an Inquiry</a>
-  </nav>
+<header class="site-header">
+  <div class="eyebrow">Private Collection · Est. Ledger No. 1</div>
+  <h1 class="title">The Vault<br><em>Comic Collection</em></h1>
+  <p class="dek">Every book that's passed through the collection, catalogued in the order it arrived. Some carry full CGC records — grade, signature, variant. Others are fresh off the scanner and still waiting on a proper entry.</p>
+  <div class="header-stats">
+    <div class="stat"><b id="stat-total">—</b><span>Total Books</span></div>
+    <div class="stat"><b id="stat-catalogued">—</b><span>Catalogued</span></div>
+  </div>
 </header>
 
-<div class="hero">
-  <div class="eyebrow">Graded Marvel Keys · For Sale</div>
-  <h1>MUSEUM QUALITY<br>MARVEL KEYS.<br><span class="accent">ALL GRADED.</span></h1>
-  <p class="hero-sub">A world-class graded Marvel key issue collection spanning multiple titles — Amazing Spider-Man, Avengers, X-Men, Daredevil, Fantastic Four, and more. Every book professionally graded. Buy individually or take the whole collection.</p>
-  <div class="hero-actions">
-    <a href="#catalog" class="btn btn-primary">Browse the Catalog</a>
-    <a href="#bundle" class="btn btn-ghost">Buy the Whole Collection</a>
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="search" type="text" placeholder="Search the ledger — title, issue, grade…" autocomplete="off">
+    <button class="clear-btn" id="clear-search" aria-label="Clear search">×</button>
   </div>
-  <div class="hero-stats">
-    <div><div class="stat-num">752</div><div class="stat-label">Graded Copies</div></div>
-    <div><div class="stat-num">11</div><div class="stat-label">Title Groups</div></div>
-    <div><div class="stat-num">9.8</div><div class="stat-label">Top Grade</div></div>
+  <div class="sort-wrap">
+    <select id="sort">
+      <option value="no-asc">Vault order</option>
+      <option value="no-desc">Vault order (reverse)</option>
+      <option value="added-desc">Recently added</option>
+      <option value="title-asc">Title, A–Z</option>
+    </select>
   </div>
+  <div class="result-count" id="result-count"></div>
 </div>
 
-<section class="section" id="catalog">
-  <div class="wrap">
-    <div class="section-eyebrow">Browse by Title</div>
-    <h2 class="section-title">The Collection</h2>
-    <p class="section-desc">Graded key issues across multiple Marvel titles. Each copy individually available — open to offers.</p>
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ss">Signature Series Only</button>
-    </div>
-    <div id="catalogContainer" style="margin-top:40px;"></div>
+<main class="grid-wrap">
+  <div class="grid" id="grid"></div>
+  <div class="sentinel" id="sentinel"></div>
+  <div class="empty-state" id="empty-state" style="display:none;">
+    <b>No matches in the ledger</b>
+    Try a different title, issue number, or grade.
   </div>
-</section>
+</main>
 
-<section class="bundle-section" id="bundle">
-  <div class="wrap">
-    <div class="bundle-frame">
-      <div>
-        <div class="bundle-tag">One Buyer · Entire Collection</div>
-        <h2>TAKE THE<br>WHOLE COLLECTION.</h2>
-        <p>The entire graded collection — every title, every issue — available as one lot with full certification and provenance records.</p>
-        <div class="bundle-facts">
-          <div><div class="bundle-fact-num">752</div><div class="bundle-fact-label">Total Copies</div></div>
-          <div><div class="bundle-fact-num">$[PRICE]</div><div class="bundle-fact-label">Est. Value</div></div>
-          <div><div class="bundle-fact-num">CGC</div><div class="bundle-fact-label">Grading Service</div></div>
-        </div>
-      </div>
-      <div class="bundle-cta-block">
-        <div class="clabel">Whole Collection</div>
-        <div class="price">$[PRICE]</div>
-        <div class="price-note">or best offer · serious inquiries only</div>
-        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;">Inquire About the Lot</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="trust-strip">
-  <div class="wrap">
-    <div class="trust-grid">
-      <div><div class="ti-label">Grading</div><div class="ti-text">All copies certified by CGC or PGX. Cert numbers verifiable with the grading service.</div></div>
-      <div><div class="ti-label">Signatures</div><div class="ti-text">Signature Series copies signed by Stan Lee, John Romita, Todd McFarlane, Roy Thomas, and others.</div></div>
-      <div><div class="ti-label">Storage</div><div class="ti-text">[Fill in storage conditions before going live.]</div></div>
-      <div><div class="ti-label">Shipping</div><div class="ti-text">Insured shipping available. Whole-collection terms negotiated directly.</div></div>
-    </div>
-  </div>
-</div>
-
-<section class="contact-section" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <div class="section-eyebrow">Get In Touch</div>
-        <h2 class="section-title" style="margin-bottom:20px;">Make An Inquiry</h2>
-        <div><div class="ci-label">Individual Books</div><div class="ci-text">Tell us which issue you're interested in and your offer.</div></div>
-        <div><div class="ci-label">Whole Collection</div><div class="ci-text">Serious buyers only. Ready to discuss inspection and transfer terms.</div></div>
-        <div><div class="ci-label">Response Time</div><div class="ci-text">[Fill in your typical response time.]</div></div>
-      </div>
-      <form id="inquiryForm">
-        <div class="form-row">
-          <div class="field"><label>Name</label><input type="text" required placeholder="Your name"></div>
-          <div class="field"><label>Email</label><input type="email" required placeholder="your@email.com"></div>
-        </div>
-        <div class="field"><label>Interested In</label>
-          <select><option>A specific comic</option><option>The whole collection</option><option>Just browsing</option></select>
-        </div>
-        <div class="field"><label>Message</label><textarea required placeholder="Which book? Your offer? Any questions?"></textarea></div>
-        <button type="submit" class="submit-btn">Send Inquiry</button>
-        <div class="success-msg" id="successMsg">Thanks — your inquiry has been received.</div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-row">
-      <div class="fbrand">THE VAULT COLLECTION</div>
-      <div class="fnote">752 GRADED COPIES · 11 TITLE GROUPS</div>
-    </div>
-  </div>
+<footer class="site-footer">
+  <span>Synced live from Cloudinary · updates automatically</span>
+  <span>Click any cover to open the full plate</span>
 </footer>
 
-<script>
-const BASE = 'https://res.cloudinary.com/kobhvma5/image/upload/';
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">CLOSE ✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">‹</button>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next">›</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap"><img id="lb-img" src="" alt=""></div>
+    <div class="lightbox-meta">
+      <div class="lb-no" id="lb-no"></div>
+      <h2 id="lb-title"></h2>
+      <div class="lb-tags" id="lb-tags"></div>
+      <a class="lb-open" id="lb-open" href="#" target="_blank" rel="noopener">View full resolution ↗</a>
+    </div>
+  </div>
+</div>
 
-const TITLE_ORDER = [
-  'Amazing Spider-Man','Amazing Spider-Man Annual',
-  'Avengers','Captain America','Daredevil','Fantastic Four',
-  'Iron Man','Journey into Mystery','Tales of Suspense',
-  'Tales to Astonish','Thor','X-Men',
-  'Giant-Size','Werewolf by Night','Other'
-];
-
-// All 752 comics hardcoded — no API call needed
-// Format: [public_id, title, issue, grade, sig_or_null]
-const COMICS_RAW = [
-  // ── AMAZING SPIDER-MAN ───────────────────────────────────────────────────
-  ['ASM_129_CGC_9.4_SSx4_front_cover_qypznc','Amazing Spider-Man','#129','9.4','SS ×4'],
-  ['ASM_115_CGC_9.6_SSx3_front_cover_b3i1ab','Amazing Spider-Man','#115','9.6','SS ×3'],
-  ['ASM_95_CGC_9.8_front_cover_vwmxz2','Amazing Spider-Man','#95','9.8',null],
-  ['ASM_92_CGC_9.8_front_cover_rubjzo','Amazing Spider-Man','#92','9.8',null],
-  ['ASM_91_CGC_9.8_front_cover_jabbfk','Amazing Spider-Man','#91','9.8',null],
-  ['ASM_91_CGC_9.6_SS_front_cover_bxunqs','Amazing Spider-Man','#91','9.6','SS'],
-  ['ASM_81_CGC_9.4_SSx2_front_cover_ijev0y','Amazing Spider-Man','#81','9.4','SS ×2'],
-  ['ASM_50_front_sx2aes','Amazing Spider-Man','#50','9.0','SS'],
-  ['Amazing_Spiderman_300_front_q1x56k','Amazing Spider-Man','#300','9.6','SS'],
-  ['ASM_299_9.8_SSx4_front_cover_g0bebs','Amazing Spider-Man','#299','9.8','SS ×4'],
-  ['ASM_195_CGC_9.8_SSx2_front_cover_slguxx','Amazing Spider-Man','#195','9.8','SS ×2'],
-  // numeric filenames - ASM
-  ['1762997519641_ttp5kt','Amazing Spider-Man','#129','9.8',null],
-  ['1776689360620_eh7ywh','Amazing Spider-Man','#129','9.8',null],
-  ['1776689351382_j7puom','Amazing Spider-Man','#43','9.6',null],
-  ['1776050489760_tsd8x9','Amazing Spider-Man','#129','9.6','SS'],
-  ['1762997561300_haadco','Amazing Spider-Man','#91','9.8',null],
-  ['1762962890992_bgqzgz','Amazing Spider-Man','#99','9.8',null],
-  ['1762962864087_xgpovr','Amazing Spider-Man','#120','9.8',null],
-  ['1762955482218_t34w06','Amazing Spider-Man','#36','9.6',null],
-  ['1762955473218_pknv3w','Amazing Spider-Man','#64','9.6',null],
-  ['1762955463449_erqoa5','Amazing Spider-Man','#64','9.6',null],
-  ['1760198774114_evvr1y','Amazing Spider-Man','#73','9.4','SS'],
-  ['1757397776076_rgqusl','Amazing Spider-Man','#107','9.6','SS'],
-  ['1756300104661_dhgrfd','Amazing Spider-Man','#51','9.0','SS'],
-  ['1746764275319_zuoiq2','Amazing Spider-Man','#238','9.6','SS'],
-  ['1746764266436_utstab','Amazing Spider-Man','#57','9.8',null],
-  ['1746672608766_cjcqmu','Amazing Spider-Man','#98','9.8',null],
-  ['1746672598357_s6gewc','Amazing Spider-Man','#129','9.6',null],
-  ['1746579891581_rbtb3n','Amazing Spider-Man','#238','9.6',null],
-  ['1746545616003_ssuatn','Amazing Spider-Man','#129','9.6',null],
-  ['1746545607830_sxoavf','Amazing Spider-Man','#105','9.8',null],
-  ['1746545565887_muk0cn','Amazing Spider-Man','#10','9.4','SS'],
-  ['1729164723432_t19tev','Amazing Spider-Man Annual','Annual #16','9.8','SS'],
-  ['1729078946795_yvh2xh','Amazing Spider-Man','#32','9.6',null],
-  ['1728664112670_pkgalc','Amazing Spider-Man','#24','9.6','SS'],
-  ['1728651925135_qm5btr','Amazing Spider-Man','#8','9.2',null],
-  ['1724720252315_rhx9yn','Amazing Spider-Man','#15','9.2','SS'],
-  ['1724720202704_ktaznj','Amazing Spider-Man','#14','9.2','SS'],
-  ['1719157213853_o6ppc9','Amazing Spider-Man','#105','9.8',null],
-  ['1719157197604_prneyh','Amazing Spider-Man','#136','9.8',null],
-  ['1719120342936_ehgl4w','Amazing Spider-Man Annual','Annual #16','9.8','SS'],
-  ['1719120200975_fmggi2','Amazing Spider-Man','#95','9.8',null],
-  ['1719120145520_dt0wiw','Amazing Spider-Man','#73','9.8',null],
-  ['1718969909684_xe2fkf','Amazing Spider-Man','#19','9.6',null],
-  ['1718764454117_ad0hiz','Amazing Spider-Man Annual','Annual #5','9.6','SS'],
-  ['1714307533567_zx4dpo','Amazing Spider-Man','#15','9.4','SS'],
-  ['1711990076969_ho2jwt','Amazing Spider-Man','#138','9.8','SS'],
-  ['1711990039057_s8ayzg','Amazing Spider-Man','#61','9.6',null],
-  ['1697773533285_tcuo8e','Amazing Spider-Man','#30','9.4','SS'],
-  ['1693847583565_l4fyv1','Amazing Spider-Man','#400','9.6','SS'],
-  ['1690691526437_zaodhw','Amazing Spider-Man','#36','9.6','SS'],
-  ['1680866133545_xgfueo','Amazing Spider-Man','#10','9.6',null],
-  ['1678643417577_semtca','Amazing Spider-Man','#239','9.6',null],
-  ['1677908047672_cdcp9b','Amazing Spider-Man','#32','9.6',null],
-  ['1672587675649_pbtq2i','Amazing Spider-Man','#64','9.8',null],
-  ['1668262385635_nko0wq','Amazing Spider-Man','#64','9.8','SS'],
-  ['1660115917844_stub','Amazing Spider-Man','#8','8.5',null],
-  ['1660115893740_stub2','Amazing Spider-Man','#88','9.8',null],
-  ['1657106836265_stub3','Amazing Spider-Man','#74','9.4','SS'],
-  ['1657106224981_stub4','Amazing Spider-Man Annual','Annual #16','9.8',null],
-  ['1657106201881_stub5','Amazing Spider-Man','#99','9.8',null],
-
-  // ── AVENGERS ─────────────────────────────────────────────────────────────
-  ['Avengers_91_front_cover_ts96sf','Avengers','#91','9.4',null],
-  ['Avengers_112_front_aiusjq','Avengers','#112','9.6',null],
-  ['Avengers_68_CGC_9.6_SSx2_front_cover_zejxsk','Avengers','#68','9.6','SS ×2'],
-  ['Avengers_68_CGC_9.6_SSx2_front_cover_fezrtp','Avengers','#68','9.6','SS ×2'],
-  ['Avengers_63_CGC_9.6_SS_front_cover_c8n9vo','Avengers','#63','9.6','SS'],
-  ['Avengers_60_CGC_9.6_SSx2_front_cover_whp0qo','Avengers','#60','9.6','SS ×2'],
-  ['Avengers_60_CGC_9.6_SS_Stan_Lee_front_cover_vlhyox','Avengers','#60','9.6','SS'],
-  ['Avengers_57_CGC_9.4_front_cover_beawgh','Avengers','#57','9.4',null],
-  ['Avengers_50_CGC_9.4_SSx2_front_cover_r4ltvq','Avengers','#50','9.4','SS ×2'],
-  ['Avengers_46_CGC_9.6_SS_front_cover_nv3aid','Avengers','#46','9.6','SS'],
-  ['Avengers_38_CGC_9.4_SS_front_cover_exyygn','Avengers','#38','9.4','SS'],
-  ['Avengers_29_CGC_9.0_SS_front_cover_vwy7ad','Avengers','#29','9.0','SS'],
-  ['Avengers_24_front_cover_vvwl4m','Avengers','#24','9.8',null],
-  ['Avengers_9_CGC_9.0_iibalb','Avengers','#9','9.0',null],
-  ['G-Size_Avengers_2_CGC_9.6_SS_x4_front_cover_oiufo1','Giant-Size','Avengers #2','9.6','SS ×4'],
-  ['Giant_Size_Avengers_2_Front_qreho0','Giant-Size','Avengers #2','9.6',null],
-  ['1728651925135_qm5btr','Avengers','#8','9.2',null],
-  ['1724720252315_rhx9yn','Avengers','#15','9.2','SS'],
-  ['1724720202704_ktaznj','Avengers','#14','9.2','SS'],
-  ['1714307533567_zx4dpo','Avengers','#15','9.4','SS'],
-  ['1697773533285_tcuo8e','Avengers','#30','9.4','SS'],
-  ['1690691526437_zaodhw','Avengers','#36','9.6','SS'],
-  ['1729078946795_yvh2xh','Avengers','#32','9.6',null],
-
-  // ── DAREDEVIL ────────────────────────────────────────────────────────────
-  ['Daredevil_111_front_vbmyol','Daredevil','#111','9.6',null],
-  ['Daredevil_232_Canadian_variant_front_e4uv29','Daredevil','#232','9.8',null],
-  ['Daredevil_81_CGC_9.6_SS_mzqolt','Daredevil','#81','9.6','SS'],
-  ['Daredevil_15_CGC_9.6_SS_front_cover_kdvpg9','Daredevil','#15','9.6','SS'],
-  ['Daredevil_12_CGC_8.5_SS_front_cover_cf4yt4','Daredevil','#12','8.5','SS'],
-  ['Daredevil_5_variant_front_cover_kg32x9','Daredevil','#5','9.4',null],
-  ['Daredevil_5_v2_front_cover_rb9pea','Daredevil','#5','9.2',null],
-
-  // ── FANTASTIC FOUR ───────────────────────────────────────────────────────
-  ['FF_112_CGC_9.6_front_cover_f34ktt','Fantastic Four','#112','9.6',null],
-  ['FF_22_CGC_9.2_SS_front_cover_c1zqec','Fantastic Four','#22','9.2','SS'],
-  ['Fantastic_Four_Annual_6_front_cover_pylvqd','Fantastic Four','Annual #6','9.4',null],
-  ['Fantastic_Four_Ann_3_Canadian_Variant_front_cover_mvgb1o','Fantastic Four','Annual #3','9.6',null],
-  ['Fantastic_Four_19_ss_Stan_Lee_front_udosft','Fantastic Four','#19','9.4','SS'],
-  ['Fantastic_Four_Ann_2_front_cover_cmlbws','Fantastic Four','Annual #2','9.2',null],
-  ['Fantastic_Four_19_Front_qfkwkg','Fantastic Four','#19','9.6',null],
-  ['Fantastic_Four_164_pedigree_front_cover_xlfcf5','Fantastic Four','#164','9.8',null],
-  ['F._Four_48_CGC_8.5_front_cover_jobjoh','Fantastic Four','#48','8.5',null],
-
-  // ── IRON MAN ─────────────────────────────────────────────────────────────
-  ['Iron_Man_170_CGC_9.8_SSx3_front_cover_fec3bp','Iron Man','#170','9.8','SS ×3'],
-  ['IronMan_Sub-Mariner_1_CGC_9.2_SS_front_cover_gyk78y','Iron Man','Sub-Mariner #1','9.2','SS'],
-
-  // ── CAPTAIN AMERICA ──────────────────────────────────────────────────────
-  ['Captain_America_286_Front_cover_yaact4','Captain America','#286','9.8',null],
-  ['Captain_America_275_front_cover_djtg38','Captain America','#275','9.6',null],
-
-  // ── JOURNEY INTO MYSTERY ─────────────────────────────────────────────────
-  ['Journey_into_Mystery_112_CGC_9.2_SS_di00ew','Journey into Mystery','#112','9.2','SS'],
-  ['Journey_into_Mystery_102_1_qjbftz','Journey into Mystery','#102','9.4',null],
-  ['Journey_into_Mystery_Annual_1_front_ux2jut','Journey into Mystery','Annual #1','9.2',null],
-  ['Journey_into_Mystery_103_CGC_8.0_SSx2_front_cover_pmgyjz','Journey into Mystery','#103','8.0','SS ×2'],
-  ['JIM_113_CGC_9.4_SS_front_cover_fqfem9','Journey into Mystery','#113','9.4','SS'],
-
-  // ── TALES OF SUSPENSE ────────────────────────────────────────────────────
-  ['TOS_56_CGC_9.0_SS_2548359009_osdhr2','Tales of Suspense','#56','9.0','SS'],
-  ['T._O._S_54_CGC_9.0_SS_front_cover_a6btph','Tales of Suspense','#54','9.0','SS'],
-  ['Tales_of_Suspense_54_CGC_8.5_SS_fsspbu','Tales of Suspense','#54','8.5','SS'],
-
-  // ── TALES TO ASTONISH ────────────────────────────────────────────────────
-  ['TTA_94_CGC_9.4_SS_front_cover_blbwvm','Tales to Astonish','#94','9.4','SS'],
-  ['Tales_to_Astonish_90_CGC_9.6_front_cover_n4m1li','Tales to Astonish','#90','9.6',null],
-  ['T._T._A_93_CGC_9.0_SS_front_cover_hrqfsv','Tales to Astonish','#93','9.0','SS'],
-
-  // ── THOR ─────────────────────────────────────────────────────────────────
-  ['Thor_Annual_2_CGC_9.4_SS_front_cover_w9q0eb','Thor','Annual #2','9.4','SS'],
-
-  // ── X-MEN ────────────────────────────────────────────────────────────────
-  ['X-Men_129_CGC_9.6_SS_front_cover_gbr2z2','X-Men','#129','9.6','SS'],
-  ['X-Men_222_CGC_9.8_SS_front_cover_nubqnt','X-Men','#222','9.8','SS'],
-  ['X-Men_221_CGC_9.8_SS_front_cover_abbmii','X-Men','#221','9.8','SS'],
-  ['X-Men_118_CGC_9.8_front_cover_mm2r1o','X-Men','#118','9.8',null],
-  ['X-Men_160_CGC_9.6_SS_front_cover_qxsn0x','X-Men','#160','9.6','SS'],
-  ['X-Men_193_CGC_9.8_SSx2_1586500017_front_cover_lcfvto','X-Men','#193','9.8','SS ×2'],
-  ['X-Men_Blue_1_CGC_9.8_SS_front_cover_sx6cdj','X-Men','Blue #1','9.8','SS'],
-  ['X-Men_19_front_cover_u4iokd','X-Men','#19','9.4',null],
-
-  // ── OTHER ─────────────────────────────────────────────────────────────────
-  ['WWBN_37_CGC_9.6_SSx2_front_cover_rmmudr','Werewolf by Night','#37','9.6','SS ×2'],
-  ['TOTTitans_44_CGC_9.8_SS_front_cover_alwifv','Other','Teen Titans #44','9.8','SS'],
-  ['1778054371120_edb1c7','Other','','9.8',null],
-];
-
-// Build comics from raw data — deduplicate by public_id
-const seen = new Set();
-const COMICS = [];
-COMICS_RAW.forEach(([pid, title, issue, grade, sig]) => {
-  if (seen.has(pid)) return;
-  seen.add(pid);
-  COMICS.push({
-    title, issue, grade, sig,
-    img: BASE + pid + '.jpg'
-  });
-});
-
-// Sort by title order then issue number
-COMICS.sort((a, b) => {
-  const ti = t => { const i = TITLE_ORDER.indexOf(t); return i < 0 ? 999 : i; };
-  const td = ti(a.title) - ti(b.title);
-  if (td !== 0) return td;
-  return (parseInt((a.issue||'').replace(/\D/g,''))||0) - (parseInt((b.issue||'').replace(/\D/g,''))||0);
-});
-
-function comicCard(c) {
-  const flagClass = c.sig ? ' ss' : '';
-  const flagText  = c.sig ? c.sig : 'Offer Only';
-  const sigLine   = c.sig ? '<div class="comic-sig">' + c.sig + '</div>' : '';
-  const issueText = c.issue ? ' ' + c.issue : '';
-  return '<div class="comic-card">'
-    + '<div class="comic-status-flag' + flagClass + '">' + flagText + '</div>'
-    + '<div class="comic-cover"><img src="' + c.img + '" alt="' + c.title + issueText + '" loading="lazy"></div>'
-    + '<div class="comic-label"><div class="comic-label-top"><div>'
-    + '<div class="comic-title">' + c.title + issueText + '</div>'
-    + '<div class="comic-meta">CGC · ' + c.grade + '</div>' + sigLine
-    + '</div><div class="grade-chip">' + c.grade + '</div></div>'
-    + '<div class="comic-label-bottom"><span class="comic-price">Make an Offer</span>'
-    + '<a href="#contact" class="comic-action">Inquire →</a>'
-    + '</div></div></div>';
-}
-
-function renderCatalog(filter) {
-  const container = document.getElementById('catalogContainer');
-  const filtered  = filter === 'ss' ? COMICS.filter(c => c.sig) : COMICS;
-  const groups = {};
-  filtered.forEach(c => { if (!groups[c.title]) groups[c.title] = []; groups[c.title].push(c); });
-  const extras   = Object.keys(groups).filter(t => !TITLE_ORDER.includes(t)).sort();
-  const sections = [...TITLE_ORDER, ...extras];
-  container.innerHTML = sections.map(title => {
-    const comics = groups[title] || [];
-    const count  = comics.length;
-    const gid    = title.replace(/[^a-z0-9]/gi,'_');
-    const badge  = count > 0 ? '<div class="title-group-count">' + count + ' ' + (count===1?'copy':'copies') + '</div>' : '';
-    const body   = count > 0
-      ? '<div class="comic-grid">' + comics.map(comicCard).join('') + '</div>'
-      : '<div class="title-group-empty">No copies currently listed — check back soon.</div>';
-    return '<div class="title-group" id="group_' + gid + '">'
-      + '<div class="title-group-header"><div class="title-group-name">' + title + '</div>' + badge + '</div>'
-      + body + '</div>';
-  }).join('');
-}
-
-renderCatalog('all');
-
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderCatalog(btn.dataset.filter);
-  });
-});
-
-document.getElementById('inquiryForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('successMsg').style.display = 'block';
-  this.reset();
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
