@@ -267,24 +267,6 @@
     var frame = document.createElement('div');
     frame.className = 'frame skel';
 
-    var noTag = document.createElement('div');
-    noTag.className = 'no-tag';
-    noTag.textContent = 'No. ' + c.no;
-    frame.appendChild(noTag);
-
-    if (c.grade) {
-      var gTag = document.createElement('div');
-      gTag.className = 'grade-tag';
-      gTag.textContent = 'CGC ' + c.grade;
-      frame.appendChild(gTag);
-    }
-    if (c.ss) {
-      var sTag = document.createElement('div');
-      sTag.className = 'ss-tag';
-      sTag.textContent = c.ssCount ? 'SIG ×' + c.ssCount : 'SIGNED';
-      frame.appendChild(sTag);
-    }
-
     var img = document.createElement('img');
     img.loading = 'lazy';
     img.decoding = 'async';
@@ -307,8 +289,30 @@
       label.appendChild(span);
     }
 
+    var metaRow = document.createElement('div');
+    metaRow.className = 'meta-row';
+
+    var noTag = document.createElement('span');
+    noTag.className = 'tag no-tag';
+    noTag.textContent = 'No. ' + c.no;
+    metaRow.appendChild(noTag);
+
+    if (c.grade) {
+      var gTag = document.createElement('span');
+      gTag.className = 'tag grade-tag';
+      gTag.textContent = 'CGC ' + c.grade;
+      metaRow.appendChild(gTag);
+    }
+    if (c.ss) {
+      var sTag = document.createElement('span');
+      sTag.className = 'tag ss-tag';
+      sTag.textContent = c.ssCount ? 'SIG ×' + c.ssCount : 'SIGNED';
+      metaRow.appendChild(sTag);
+    }
+
     card.appendChild(frame);
     card.appendChild(label);
+    card.appendChild(metaRow);
 
     card.addEventListener('click', function () { openLightbox(idx); });
     card.addEventListener('keydown', function (e) {
