@@ -1,22 +1,13 @@
-import { getStore } from '@netlify/blobs';
-import { fetchAllCloudinaryResources } from './lib/cloudinary.mjs';
-import { parseComics } from './lib/parse-comic.mjs';
 
-// Runs on a schedule (see `config.schedule` below) and refreshes the cached
-// comics list so additions/removals in Cloudinary show up on the live site
-// without any manual regeneration or redeploy. Adjust the cron expression
-// to control how "fresh" the site is allowed to be — every 15 minutes is a
-// light touch on the Admin API (752 comics = 2 paginated requests per run).
+// This function is intentionally disabled. It previously ran on a fixed
+// 15-minute schedule (`export const config = { schedule: ... }`), which on
+// Netlify's credit-based billing burns credits continuously regardless of
+// site traffic. That behavior has been replaced by an on-demand refresh
+// inside comics.mjs, which only does work when a real visitor loads the
+// page. This file is left in place (rather than deleted) purely because
+// deleting files through some web-based editors can be finicky — having no
+// `schedule` export means Netlify will not run this on any interval.
 
 export default async () => {
-  const resources = await fetchAllCloudinaryResources();
-  const data = parseComics(resources);
-
-  const store = getStore('vault');
-  await store.setJSON('comics', data);
-
-  console.log(`Vault refreshed: ${data.length} comics cached (${new Date().toISOString()}).`);
+  return new Response('Disabled — see comics.mjs for the on-demand refresh logic.');
 };
-
-// Every 15 minutes. Cron format: minute hour day month weekday.
-export const config = { schedule: '*/15 * * * *' };
