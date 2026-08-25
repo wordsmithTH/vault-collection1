@@ -225,42 +225,30 @@ h1.title em{
 }
 .frame img.loaded{ opacity:1; }
 
-.no-tag{
-  position:absolute; top:0; left:0;
-  background: rgba(18,20,26,0.82);
-  color:var(--brass);
+/* Metadata now sits BELOW the cover, never over it — these photos are of
+   physical CGC slabs, and the real grade label is usually printed at the
+   top of the case in the photo itself, so overlaying our own badge there
+   was covering it up. */
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
+}
+.tag{
   font-family:'IBM Plex Mono', monospace;
   font-size:10px;
-  letter-spacing:.06em;
-  padding:4px 7px 4px 8px;
-  border-bottom-right-radius: var(--radius);
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  z-index:2;
+  letter-spacing:.04em;
+  padding:3px 7px;
+  border-radius:2px;
+  border:1px solid var(--line);
+  color:var(--text-dim);
+  line-height:1.4;
 }
-.grade-tag{
-  position:absolute; bottom:0; right:0;
-  background: rgba(18,20,26,0.86);
-  color:var(--paper);
-  font-family:'IBM Plex Mono', monospace;
-  font-size:10.5px;
-  padding:4px 8px;
-  border-top-left-radius: var(--radius);
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
-  z-index:2;
-}
-.ss-tag{
-  position:absolute; top:0; right:0;
-  background: var(--sig);
-  color:#fff;
-  font-family:'IBM Plex Mono', monospace;
-  font-size:9.5px;
-  letter-spacing:.05em;
-  padding:4px 7px;
-  border-bottom-left-radius: var(--radius);
-  z-index:2;
-}
+.tag.no-tag{ color:var(--brass); border-color:rgba(201,163,74,0.3); }
+.tag.grade-tag{ color:var(--paper); border-color:var(--brass-dim); }
+.tag.ss-tag{ color:#fff; background:var(--sig); border-color:var(--sig); }
+
 .card-label{
   margin-top:9px;
   font-size:12.5px;
