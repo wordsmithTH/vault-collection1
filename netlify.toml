@@ -3,3 +3,21 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Prevent browsers/CDN from serving a stale cached copy of these after a
+# deploy — they're small files and change often during setup, so it's not
+# worth the caching tradeoff.
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/overrides.json"
+  [headers.values]
+    Cache-Control = "no-cache"
