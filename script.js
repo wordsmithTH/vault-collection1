@@ -9,23 +9,23 @@
   var SERIES_ALIASES = {
     'asm': 'Amazing Spider-Man',
     'amazing spiderman': 'Amazing Spider-Man',
-    'gs spider man': 'Giant-Size Spider-Man',
-    'g size avengers': 'Giant-Size Avengers',
-    'giant size avengers': 'Giant-Size Avengers',
-    'g s cap t america': 'Giant-Size Captain America',
-    'g s cap t marvel': 'Giant-Size Captain Marvel',
-    'g s iron man': 'Giant-Size Iron Man',
-    'g s power man': 'Giant-Size Power Man',
-    'g s s stars': 'Giant-Size Super-Stars',
-    'g s super villain team up': 'Giant-Size Super-Villain Team-Up',
-    'g s thor': 'Giant-Size Thor',
+    'gs spider man': 'Giant-Size',
+    'g size avengers': 'Giant-Size',
+    'giant size avengers': 'Giant-Size',
+    'g s cap t america': 'Giant-Size',
+    'g s cap t marvel': 'Giant-Size',
+    'g s iron man': 'Giant-Size',
+    'g s power man': 'Giant-Size',
+    'g s s stars': 'Giant-Size',
+    'g s super villain team up': 'Giant-Size',
+    'g s thor': 'Giant-Size',
     'f four': 'Fantastic Four',
     'ff': 'Fantastic Four',
     'fantastic four ann': 'Fantastic Four Annual',
-    'gr lantern': 'Green Lantern',
-    'green lantern': 'Green Lantern',
+    'gr lantern': 'DC titles / Green Lantern',
+    'green lantern': 'DC titles / Green Lantern',
     'hulk ann': 'Incredible Hulk Annual',
-    'ironman sub mariner': 'Iron Man / Sub-Mariner',
+    'ironman sub mariner': 'Iron Man',
     'jim': 'Journey into Mystery',
     'journey into mystery': 'Journey into Mystery',
     'm premiere': 'Marvel Premiere',
@@ -35,7 +35,7 @@
     'marvel super heroes secret wars': 'Marvel Super Heroes: Secret Wars',
     'marvel preview': 'Marvel Preview',
     'marvel two in one ann': 'Marvel Two-in-One Annual',
-    'n t titans': 'New Teen Titans',
+    'n t titans': 'DC titles / New Teen Titans',
     'new miutants': 'New Mutants',
     'new mutants': 'New Mutants',
     'ninja sxroll': 'Ninja Scroll',
@@ -50,13 +50,18 @@
     't t a': 'Tales to Astonish',
     'tta': 'Tales to Astonish',
     'tales to astonish': 'Tales to Astonish',
-    'tottitans': 'Tales of the Teen Titans',
     'deadly hands kung fu': 'Deadly Hands of Kung Fu',
     'dealy hands kung fu': 'Deadly Hands of Kung Fu',
     'logan s run': "Logan's Run",
-    'batman odyssey': 'Batman: Odyssey',
-    'batman vengeance of bane i': 'Batman: Vengeance of Bane',
+    'batman odyssey': 'DC titles / Batman',
+    'batman vengeance of bane i': 'DC titles / Batman',
     'blackbolt': 'Black Bolt',
+    'superman': 'DC titles / Superman',
+    'batman family': 'DC titles / Batman',
+    'booster gold': 'DC titles / Booster Gold',
+    'dc comics presents': 'DC titles / DC Comics Presents',
+    'shazam': 'DC titles / Shazam',
+    'tottitans': 'DC titles / Tales of the Teen Titans',
   };
 
   function normKey(s) {
@@ -79,6 +84,15 @@
   }
 
   var UNCATALOGUED = 'Uncatalogued Scans';
+
+  // ---------- featured hero book ----------
+  // Vault No. 0583 — Amazing Spider-Man 129, CGC 9.8. Ask Claude to swap
+  // this to a different vault number whenever you want a new hero book.
+  var FEATURED_BOOK_ID = '1762997519641_ttp5kt';
+
+  // ---------- collection price ----------
+  // Update this string directly, or ask Claude to change it.
+  var COLLECTION_PRICE = 'Price on request';
 
   // ---------- state ----------
   var state = {
@@ -104,7 +118,14 @@
     lbClose: document.getElementById('lb-close'),
     lbPrev: document.getElementById('lb-prev'),
     lbNext: document.getElementById('lb-next'),
+    heroBook: document.getElementById('hero-book'),
+    heroImg: document.getElementById('hero-img'),
+    heroTitle: document.getElementById('hero-title'),
+    heroGrade: document.getElementById('hero-grade'),
+    offerPrice: document.getElementById('offer-price'),
   };
+
+  els.offerPrice.textContent = COLLECTION_PRICE;
 
   // the sort <select> no longer applies (fixed grouped order per request) —
   // hide it if present rather than deleting markup/behavior elsewhere.
@@ -158,6 +179,9 @@
       c.series = ov.series;
       if (ov.issue != null) c.issue = ov.issue;
     }
+    if (ov.grade != null) c.grade = ov.grade;
+    if (ov.ss != null) c.ss = ov.ss;
+    if (ov.ssCount != null) c.ssCount = ov.ssCount;
   }
 
   Promise.all([loadData(), loadOverrides()])
@@ -179,13 +203,71 @@
       });
       els.statTotal.textContent = data.length;
       els.statCatalogued.textContent = state.all.filter(function (c) { return c.title; }).length;
+      renderHero();
       render();
     })
     .catch(function (err) {
       els.grid.innerHTML = '<p style="color:#c77;font-family:monospace;">Could not load the vault — ' + err + '</p>';
     });
 
+  // ---------- featured hero ----------
+  function renderHero() {
+    var book = state.all.filter(function (c) { return c.id === FEATURED_BOOK_ID; })[0];
+    if (!book) return; // featured book not found in current data — hero just stays empty
+    els.heroImg.src = thumbUrl(book.url, 500);
+    els.heroImg.alt = displayLabel(book);
+    els.heroImg.addEventListener('load', function () {
+      els.heroImg.classList.add('loaded');
+    });
+    els.heroTitle.textContent = book.title || displayLabel(book);
+    els.heroGrade.textContent = book.grade ? 'CGC ' + book.grade : '';
+  }
+
   // ---------- grouping + rendering ----------
+  // Series values can express a two-level hierarchy using " / " as the
+  // separator, e.g. "DC titles / Aquaman" renders "Aquaman" as a
+  // sub-section nested inside a "DC titles" super-section. Anything
+  // without " / " renders as a normal flat top-level section, same as
+  // before — this is purely additive.
+  function sortItems(items) {
+    items.sort(function (a, b) {
+      if (a.issue != null && b.issue != null) {
+        if (a.issue !== b.issue) return a.issue - b.issue;
+        return (a.title || '').localeCompare(b.title || '');
+      }
+      if (a.issue != null) return -1;
+      if (b.issue != null) return 1;
+      return a.no.localeCompare(b.no);
+    });
+  }
+
+  function buildSection(name, items, opts) {
+    opts = opts || {};
+    var section = document.createElement('div');
+    section.className = 'group' + (opts.sub ? ' sub-group' : '');
+
+    var header = document.createElement('div');
+    header.className = 'group-header' + (opts.uncatalogued ? ' uncatalogued' : '') + (opts.sub ? ' sub-header' : '');
+    var h2 = document.createElement('h2');
+    h2.textContent = name;
+    var count = document.createElement('span');
+    count.className = 'group-count';
+    count.textContent = items.length + (items.length === 1 ? ' book' : ' books');
+    header.appendChild(h2);
+    header.appendChild(count);
+    section.appendChild(header);
+
+    var sectionGrid = document.createElement('div');
+    sectionGrid.className = 'grid';
+    items.forEach(function (c) {
+      var idx = state.flatOrder.length;
+      state.flatOrder.push(c);
+      sectionGrid.appendChild(buildCard(c, idx));
+    });
+    section.appendChild(sectionGrid);
+    return section;
+  }
+
   function render() {
     var q = state.query.trim().toLowerCase();
 
@@ -195,64 +277,59 @@
       return hay.toLowerCase().indexOf(q) !== -1;
     });
 
-    var groups = {};
+    var topLevel = {}; // name -> {type:'flat', items:[]} | {type:'super', subgroups:{name:[]}}
     matches.forEach(function (c) {
-      (groups[c.series] = groups[c.series] || []).push(c);
+      var parts = c.series.split(' / ');
+      if (parts.length === 2) {
+        var superName = parts[0], subName = parts[1];
+        if (!topLevel[superName]) topLevel[superName] = { type: 'super', subgroups: {} };
+        (topLevel[superName].subgroups[subName] = topLevel[superName].subgroups[subName] || []).push(c);
+      } else {
+        if (!topLevel[c.series]) topLevel[c.series] = { type: 'flat', items: [] };
+        topLevel[c.series].items.push(c);
+      }
     });
 
-    var groupNames = Object.keys(groups).filter(function (g) { return g !== UNCATALOGUED; });
-    groupNames.sort(function (a, b) { return a.localeCompare(b); });
-    if (groups[UNCATALOGUED]) groupNames.push(UNCATALOGUED); // always last
-
-    groupNames.forEach(function (name) {
-      groups[name].sort(function (a, b) {
-        if (a.issue != null && b.issue != null) {
-          if (a.issue !== b.issue) return a.issue - b.issue;
-          return (a.title || '').localeCompare(b.title || '');
-        }
-        if (a.issue != null) return -1;
-        if (b.issue != null) return 1;
-        return a.no.localeCompare(b.no);
-      });
-    });
+    var topNames = Object.keys(topLevel).filter(function (g) { return g !== UNCATALOGUED; });
+    topNames.sort(function (a, b) { return a.localeCompare(b); });
+    if (topLevel[UNCATALOGUED]) topNames.push(UNCATALOGUED); // always last
 
     els.grid.innerHTML = '';
     state.flatOrder = [];
     var frag = document.createDocumentFragment();
+    var totalGroups = 0;
 
-    groupNames.forEach(function (name) {
-      var items = groups[name];
-      var section = document.createElement('div');
-      section.className = 'group';
-
-      var header = document.createElement('div');
-      header.className = 'group-header' + (name === UNCATALOGUED ? ' uncatalogued' : '');
-      var h2 = document.createElement('h2');
-      h2.textContent = name;
-      var count = document.createElement('span');
-      count.className = 'group-count';
-      count.textContent = items.length + (items.length === 1 ? ' book' : ' books');
-      header.appendChild(h2);
-      header.appendChild(count);
-      section.appendChild(header);
-
-      var sectionGrid = document.createElement('div');
-      sectionGrid.className = 'grid';
-      items.forEach(function (c) {
-        var idx = state.flatOrder.length;
-        state.flatOrder.push(c);
-        sectionGrid.appendChild(buildCard(c, idx));
-      });
-      section.appendChild(sectionGrid);
-
-      frag.appendChild(section);
+    topNames.forEach(function (name) {
+      var entry = topLevel[name];
+      if (entry.type === 'flat') {
+        sortItems(entry.items);
+        totalGroups++;
+        frag.appendChild(buildSection(name, entry.items, { uncatalogued: name === UNCATALOGUED }));
+      } else {
+        var subNames = Object.keys(entry.subgroups).sort(function (a, b) { return a.localeCompare(b); });
+        var superSection = document.createElement('div');
+        superSection.className = 'super-group';
+        var superHeader = document.createElement('div');
+        superHeader.className = 'super-header';
+        var h1 = document.createElement('h1');
+        h1.textContent = name;
+        superHeader.appendChild(h1);
+        superSection.appendChild(superHeader);
+        subNames.forEach(function (subName) {
+          var items = entry.subgroups[subName];
+          sortItems(items);
+          totalGroups++;
+          superSection.appendChild(buildSection(subName, items, { sub: true }));
+        });
+        frag.appendChild(superSection);
+      }
     });
 
     els.grid.appendChild(frag);
 
     els.resultCount.innerHTML = q
-      ? '<b>' + matches.length + '</b> match' + (matches.length === 1 ? '' : 'es') + ' in ' + groupNames.length + ' group' + (groupNames.length === 1 ? '' : 's')
-      : '<b>' + matches.length + '</b> in the vault · ' + groupNames.length + ' groups';
+      ? '<b>' + matches.length + '</b> match' + (matches.length === 1 ? '' : 'es') + ' in ' + totalGroups + ' group' + (totalGroups === 1 ? '' : 's')
+      : '<b>' + matches.length + '</b> in the vault · ' + totalGroups + ' groups';
     els.emptyState.style.display = matches.length === 0 ? 'block' : 'none';
   }
 
