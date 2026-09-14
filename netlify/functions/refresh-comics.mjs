@@ -1,4 +1,3 @@
-
 // This function is intentionally disabled. It previously ran on a fixed
 // 15-minute schedule (`export const config = { schedule: ... }`), which on
 // Netlify's credit-based billing burns credits continuously regardless of
