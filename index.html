@@ -11,13 +11,56 @@
 
 <header class="site-header">
   <div class="eyebrow">Private Collection · Est. Ledger No. 1</div>
-  <h1 class="title">The Vault<br><em>Comic Collection</em></h1>
-  <p class="dek">Every book that's passed through the collection, catalogued in the order it arrived. Some carry full CGC records — grade, signature, variant. Others are fresh off the scanner and still waiting on a proper entry.</p>
-  <div class="header-stats">
-    <div class="stat"><b id="stat-total">—</b><span>Total Books</span></div>
-    <div class="stat"><b id="stat-catalogued">—</b><span>Catalogued</span></div>
+  <div class="header-top">
+    <div class="header-copy">
+      <h1 class="title">The Vault<br><em>Comic Collection</em></h1>
+      <p class="dek">Every book that's passed through the collection, catalogued in the order it arrived. Some carry full CGC records — grade, signature, variant. Others are fresh off the scanner and still waiting on a proper entry.</p>
+      <div class="header-stats">
+        <div class="stat"><b id="stat-total">—</b><span>Total Books</span></div>
+        <div class="stat"><b id="stat-catalogued">—</b><span>Catalogued</span></div>
+      </div>
+    </div>
+    <a class="hero-book" id="hero-book" href="#inquire">
+      <div class="hero-frame">
+        <img id="hero-img" src="" alt="">
+      </div>
+      <div class="hero-caption">
+        <span class="hero-tag">Featured</span>
+        <div class="hero-title" id="hero-title"></div>
+        <div class="hero-grade" id="hero-grade"></div>
+      </div>
+    </a>
   </div>
 </header>
+
+<section class="collection-offer" id="inquire">
+  <div class="offer-inner">
+    <div class="offer-copy">
+      <div class="eyebrow">The Full Collection</div>
+      <h2>Available as a complete set</h2>
+      <p>Every book in this vault, sold together as one collection.</p>
+      <div class="offer-price" id="offer-price">Price on request</div>
+    </div>
+    <form class="offer-form" name="collection-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="collection-inquiry" />
+      <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="4" placeholder="I'm interested in the full collection..."></textarea>
+      </label>
+      <button type="submit">Send Inquiry</button>
+      <p class="offer-note">Goes straight to Netlify's form inbox — no account or payment info collected here.</p>
+    </form>
+  </div>
+</section>
 
 <div class="controls">
   <div class="search-wrap">
