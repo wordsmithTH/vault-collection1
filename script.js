@@ -27,12 +27,16 @@
     'giant size super stars': 'Giant-Size',
     'giant size thor': 'Giant-Size',
     'giant size super villain team up': 'Giant-Size',
+    'giant size hulk': 'Giant-Size',
+    'giant size defenders': 'Giant-Size',
+    'giant size doctor strange': 'Giant-Size',
+    'giant size super villains team up': 'Giant-Size',
     'f four': 'Fantastic Four',
     'ff': 'Fantastic Four',
     'fantastic four ann': 'Fantastic Four Annual',
     'gr lantern': 'DC titles / Green Lantern',
     'green lantern': 'DC titles / Green Lantern',
-    'hulk ann': 'Incredible Hulk Annual',
+    'hulk ann': 'Hulk Annual',
     'ironman sub mariner': 'Iron Man',
     'jim': 'Journey into Mystery',
     'journey into mystery': 'Journey into Mystery',
@@ -46,8 +50,8 @@
     'n t titans': 'DC titles / New Teen Titans',
     'new miutants': 'New Mutants',
     'new mutants': 'New Mutants',
-    'ninja sxroll': 'Ninja Scroll',
-    'ninja scroll': 'Ninja Scroll',
+    'ninja sxroll': 'Misc titles',
+    'ninja scroll': 'Misc titles',
     'silver surfer ann': 'Silver Surfer Annual',
     'silver surfer annual': 'Silver Surfer Annual',
     'strange tales': 'Strange Tales',
@@ -70,6 +74,7 @@
     'dc comics presents': 'DC titles / DC Comics Presents',
     'shazam': 'DC titles / Shazam',
     'tottitans': 'DC titles / Tales of the Teen Titans',
+    'tales of the teen titans': 'DC titles / Tales of the Teen Titans',
   };
 
   function normKey(s) {
@@ -281,7 +286,7 @@
 
     var matches = state.all.filter(function (c) {
       if (!q) return true;
-      var hay = (c.title || '') + ' ' + c.no + ' ' + (c.grade || '') + ' ' + c.id;
+      var hay = (c.title || '') + ' ' + c.series + ' ' + c.no + ' ' + (c.grade || '');
       return hay.toLowerCase().indexOf(q) !== -1;
     });
 
