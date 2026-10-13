@@ -212,9 +212,6 @@
   "1663823723229_nr0zy3": {
     "title": "Avengers/JLA 4"
   },
-  "1663823741192_mwtabl": {
-    "series": "ROM"
-  },
   "1663823761245_b0pv5k": {
     "title": "Daredevil 45"
   },
@@ -332,12 +329,6 @@
     "series": "X-Men",
     "title": "X-Men 39"
   },
-  "1669701635220_bglscx": {
-    "series": "Various Marvel titles"
-  },
-  "1670649187214_mfspri": {
-    "series": "Various Marvel titles"
-  },
   "1671331576552_pzeqjs": {
     "series": "X-Men",
     "title": "X-Men 155 Newsstand variant"
@@ -351,9 +342,6 @@
   },
   "1672587559356_pzjgwc": {
     "title": "Avengers 71"
-  },
-  "1672587577766_y1clvu": {
-    "series": "X-Men"
   },
   "1672587596279_e44cpf": {
     "title": "Fantastic Four 89"
@@ -432,9 +420,6 @@
   },
   "1676952574650_wram1k": {
     "title": "Daredevil 3"
-  },
-  "1676952650701_e631ud": {
-    "series": "X-Men"
   },
   "1677077949593_fplbab": {
     "series": "DC titles / Aquaman",
@@ -521,15 +506,9 @@
     "series": "Tales of Suspense",
     "title": "Tales of Suspense 64"
   },
-  "1682415339036_gmx3kh": {
-    "series": "Various Marvel titles"
-  },
   "1682415399796_wnucy3": {
     "series": "X-Factor",
     "title": "X-Factor 6 Canadian variant"
-  },
-  "1682527479704_crgtsn": {
-    "series": "Various Marvel titles"
   },
   "1682527496801_orwmvm": {
     "series": "Micronauts",
@@ -796,9 +775,6 @@
   "1694106085932_xxm9qd": {
     "title": "Journey into Mystery 96"
   },
-  "1694106236709_hbohpx": {
-    "series": "New Mutants"
-  },
   "1694106254141_ironxa": {
     "title": "Fantastic Four 286 Canadian variant"
   },
@@ -901,9 +877,6 @@
   "1711774970940_sj87zo": {
     "series": "Tales to Astonish",
     "title": "Tales to Astonish 97"
-  },
-  "1711987446510_v1ajoh": {
-    "series": "X-Men"
   },
   "1711987466970_hbwjlb": {
     "series": "Strange Tales",
@@ -1169,17 +1142,11 @@
     "series": "X-Men",
     "title": "X-Men 10"
   },
-  "1728662030870_whvvtp": {
-    "title": "Fantastic Four 85"
-  },
   "1728664076100_csnlfu": {
     "title": "Daredevil 15"
   },
   "1728664112670_pkgalc": {
     "title": "Avengers 24"
-  },
-  "1728701587965_yniy1q": {
-    "title": "Champions 7"
   },
   "1728701605820_lfkojq": {
     "series": "X-Men",
@@ -1827,9 +1794,6 @@
     "series": "Ms. Marvel",
     "title": "Ms. Marvel 1"
   },
-  "20231031_141449_qjimea": {
-    "series": "Giant-Size"
-  },
   "20231031_141546_i8fjmk": {
     "title": "Astonishing Tales 25"
   },
@@ -1843,9 +1807,6 @@
   "20231031_141752_t7ggir": {
     "series": "DC titles / Justice League of America",
     "title": "Justice League of America 94"
-  },
-  "20231031_141839_hmoqyj": {
-    "series": "X-Men"
   },
   "20231031_142519_cbtdx4": {
     "title": "Amazing Spider-Man 117"
@@ -1900,9 +1861,6 @@
   },
   "20250401_090730_waoldf": {
     "title": "Amazing Spider-Man 265"
-  },
-  "20250623_114629_iu418x": {
-    "series": "X-Men"
   },
   "20250623_114902_oebxdu": {
     "title": "Amazing Spider-Man 24"
@@ -2149,9 +2107,6 @@
   "ASM_50_front_sx2aes": {
     "title": "Amazing Spider-Man 50"
   },
-  "ASM_81_CGC_9.4_SSx2_front_cover_ijev0y": {
-    "title": "Amazing Spider-Man 81"
-  },
   "ASM_91_CGC_9.6_SS_front_cover_bxunqs": {
     "title": "Amazing Spider-Man 91",
     "grade": ""
@@ -2280,20 +2235,9 @@
   "Marvel_Super_heroes_Secret_Wars_1_front_cover_zpd9lz": {
     "title": "Marvel Super Heroes Secret Wars 1"
   },
-  "Marvel_Two-in-One_Ann_2_CGC_9.8_wracwp": {
-    "title": "Marvel Two-in-One Annual 2",
-    "grade": ""
-  },
-  "New_Miutants_1_Canadian_variant_front_cover_cfrhwg": {
-    "title": "New Mutants 1 Canadian variant"
-  },
   "Ninja_Sxroll_1_CGC_9.6_SSx3_1_front_cover_bu7hek": {
     "title": "Ninja Scroll 1",
     "series": "Misc titles",
-    "grade": ""
-  },
-  "Silver_Surfer_Ann_6_CGC_9.8_front_cover_wo5wse": {
-    "title": "Silver Surfer Annual 6",
     "grade": ""
   },
   "Strange_tales_160_CGC_9.4_front_cover_dgcnhe": {
@@ -2330,11 +2274,6 @@
   },
   "X-Men_193_CGC_9.8_SSx2_1586500017_front_cover_lcfvto": {
     "title": "X-Men 193",
-    "grade": ""
-  },
-  "WWBN_37_CGC_9.6_SSx2_front_cover_rmmudr": {
-    "title": "Werewolf by Night 37",
-    "series": "Various Marvel titles",
     "grade": ""
   },
   "Marvel_Preview_11_front_fmhokx": {
