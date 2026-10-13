@@ -25,15 +25,24 @@ export default async () => {
     fetchedAt = cached.fetchedAt || 0;
   }
 
-  const stale = !data || (now - fetchedAt) > TTL_MS;
+  // An empty cached list is never trusted: it is refetched on every visit
+  // until Cloudinary returns real books.
+  const empty = !Array.isArray(data) || data.length === 0;
+  const stale = empty || (now - fetchedAt) > TTL_MS;
 
   if (stale) {
     try {
       const resources = await fetchAllCloudinaryResources();
-      data = parseComics(resources);
-      await store.setJSON('comics', { data: data, fetchedAt: now });
+      const fresh = parseComics(resources);
+      // Only store a list that actually has books in it.
+      if (Array.isArray(fresh) && fresh.length > 0) {
+        data = fresh;
+        await store.setJSON('comics', { data: data, fetchedAt: now });
+      } else if (empty) {
+        throw new Error('Cloudinary returned no usable images (' + resources.length + ' resources)');
+      }
     } catch (err) {
-      if (!data) {
+      if (empty) {
         return new Response(
           JSON.stringify({ error: String(err && err.message ? err.message : err) }),
           { status: 502, headers: { 'content-type': 'application/json' } }
