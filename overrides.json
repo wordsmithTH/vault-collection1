@@ -1418,7 +1418,7 @@
     "title": "Fantastic Four 97"
   },
   "1762997519641_ttp5kt": {
-    "grade": "9.8",
+    "grade": "",
     "title": "Amazing Spider-Man 129"
   },
   "1762997522429_cvi65p": {
@@ -2131,16 +2131,19 @@
     "title": "Fantastic Four 211"
   },
   "ASM_115_CGC_9.6_SSx3_front_cover_b3i1ab": {
-    "title": "Amazing Spider-Man 115"
+    "title": "Amazing Spider-Man 115",
+    "grade": ""
   },
   "ASM_129_CGC_9.4_SSx4_front_cover_qypznc": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "grade": ""
   },
   "ASM_195_CGC_9.8_SSx2_front_cover_slguxx": {
-    "title": "Amazing Spider-Man 195"
+    "title": "Amazing Spider-Man 195",
+    "grade": ""
   },
   "ASM_299_9.8_SSx4_front_cover_g0bebs": {
-    "grade": "9.8",
+    "grade": "",
     "title": "Amazing Spider-Man 299"
   },
   "ASM_50_front_sx2aes": {
@@ -2150,32 +2153,39 @@
     "title": "Amazing Spider-Man 81"
   },
   "ASM_91_CGC_9.6_SS_front_cover_bxunqs": {
-    "title": "Amazing Spider-Man 91"
+    "title": "Amazing Spider-Man 91",
+    "grade": ""
   },
   "ASM_91_CGC_9.8_front_cover_jabbfk": {
-    "title": "Amazing Spider-Man 91"
+    "title": "Amazing Spider-Man 91",
+    "grade": ""
   },
   "ASM_92_CGC_9.8_front_cover_rubjzo": {
-    "title": "Amazing Spider-Man 92"
+    "title": "Amazing Spider-Man 92",
+    "grade": ""
   },
   "ASM_95_CGC_9.8_front_cover_vwmxz2": {
-    "title": "Amazing Spider-Man 95"
+    "title": "Amazing Spider-Man 95",
+    "grade": ""
   },
   "Alpha_Flight_1_2_Cad_Var_front_vq6uqi": {
     "title": "Alpha Flight 1 Canadian variant"
   },
   "Deadly_Hands_Kung_Fu_23_CGC_9.6_SSx2_2_front_cover_ohcymo": {
-    "title": "Deadly Hands of Kung Fu 23"
+    "title": "Deadly Hands of Kung Fu 23",
+    "grade": ""
   },
   "Dealy_Hands_Kung_Fu_23_2_CGC_9.6_SS_front_cover_vydd2g": {
-    "title": "Deadly Hands of Kung Fu 23"
+    "title": "Deadly Hands of Kung Fu 23",
+    "grade": ""
   },
   "F._Four_48_CGC_8.5_front_cover_jobjoh": {
     "title": "Fantastic Four 48",
     "grade": ""
   },
   "FF_112_CGC_9.6_front_cover_f34ktt": {
-    "title": "Fantastic Four 112"
+    "title": "Fantastic Four 112",
+    "grade": ""
   },
   "FF_22_CGC_9.2_SS_front_cover_c1zqec": {
     "title": "Fantastic Four 22",
@@ -2191,7 +2201,8 @@
     "title": "Fantastic Four Annual 3 Canadian variant"
   },
   "G-S_Cap_t_America_1_CGC_9.6_SSx2_front_cover_fycdpx": {
-    "title": "Giant-Size Captain America 1"
+    "title": "Giant-Size Captain America 1",
+    "grade": ""
   },
   "G-S_Cap_t_Marvel_1_CGC_9.6_SS_front_cover_zom3eq": {
     "title": "Giant-Size Captain Marvel 1",
@@ -2207,7 +2218,8 @@
     "title": "Giant-Size Super-Stars 1"
   },
   "G-S_Super-Villain_team-up_1_CGC_9.6_SSx4_front_cover_y43vch": {
-    "title": "Giant-Size Super-Villain Team-Up 1"
+    "title": "Giant-Size Super-Villain Team-Up 1",
+    "grade": ""
   },
   "G-S_Thor_1_CGC_9.6_SSx2_front_cover_khfafz": {
     "title": "Giant-Size Thor 1",
@@ -2224,10 +2236,12 @@
     "title": "Giant-Size Avengers 2"
   },
   "IronMan_Sub-Mariner_1_CGC_9.2_SS_front_cover_gyk78y": {
-    "title": "Iron Man and Sub-Mariner 1"
+    "title": "Iron Man and Sub-Mariner 1",
+    "grade": ""
   },
   "JIM_113_CGC_9.4_SS_front_cover_fqfem9": {
-    "title": "Journey into Mystery 113"
+    "title": "Journey into Mystery 113",
+    "grade": ""
   },
   "Journey_into_Mystery_102_1_qjbftz": {
     "title": "Journey into Mystery 102"
@@ -2245,13 +2259,16 @@
     "title": "Green Lantern 81"
   },
   "Gr_Lantern_84_CGC_9.4_SSx2_front_cover_wuemhm": {
-    "title": "Green Lantern 84"
+    "title": "Green Lantern 84",
+    "grade": ""
   },
   "Hulk_Ann_5_CGC_9.8_SS_front_cover_dh8uef": {
-    "title": "Hulk Annual 5"
+    "title": "Hulk Annual 5",
+    "grade": ""
   },
   "M._Spotlight_28_CGC_9.6_SSx2_front_cover_f3mdvc": {
-    "title": "Marvel Spotlight 28"
+    "title": "Marvel Spotlight 28",
+    "grade": ""
   },
   "M._Premiere_47_CGC_9.8_SSx2_front_cover_r0quek": {
     "title": "Marvel Premiere 47",
@@ -2264,7 +2281,8 @@
     "title": "Marvel Super Heroes Secret Wars 1"
   },
   "Marvel_Two-in-One_Ann_2_CGC_9.8_wracwp": {
-    "title": "Marvel Two-in-One Annual 2"
+    "title": "Marvel Two-in-One Annual 2",
+    "grade": ""
   },
   "New_Miutants_1_Canadian_variant_front_cover_cfrhwg": {
     "title": "New Mutants 1 Canadian variant"
@@ -2275,7 +2293,8 @@
     "grade": ""
   },
   "Silver_Surfer_Ann_6_CGC_9.8_front_cover_wo5wse": {
-    "title": "Silver Surfer Annual 6"
+    "title": "Silver Surfer Annual 6",
+    "grade": ""
   },
   "Strange_tales_160_CGC_9.4_front_cover_dgcnhe": {
     "title": "Strange Tales 160",
@@ -2306,7 +2325,8 @@
     "grade": ""
   },
   "TOTTitans_44_CGC_9.8_SS_front_cover_alwifv": {
-    "title": "Tales of the Teen Titans 44"
+    "title": "Tales of the Teen Titans 44",
+    "grade": ""
   },
   "X-Men_193_CGC_9.8_SSx2_1586500017_front_cover_lcfvto": {
     "title": "X-Men 193",
@@ -2321,7 +2341,8 @@
     "title": "Marvel Preview 11 variant"
   },
   "MSHSecret_Wars_8_CGC_9.6_SSx3_CAD_VAR_front_cover_db9sbs": {
-    "title": "Marvel Super Heroes Secret Wars 8 Canadian variant"
+    "title": "Marvel Super Heroes Secret Wars 8 Canadian variant",
+    "grade": ""
   },
   "New_Mutants_26_Canadian_Variant_front_cover_l3f8fl": {
     "title": "New Mutants 26 Canadian variant"
@@ -2354,17 +2375,21 @@
   },
   "X-Men_Blue_1_CGC_9.8_SS_front_cover_sx6cdj": {
     "series": "X-Men",
-    "issue": 1001
+    "issue": 1001,
+    "grade": ""
   },
   "Avengers_60_CGC_9.6_SS_Stan_Lee_front_cover_vlhyox": {
-    "title": "Avengers 60"
+    "title": "Avengers 60",
+    "grade": ""
   },
   "Batman_Odyssey_v1_1_B_W_CGC_9.8_SS_f5hbdl": {
-    "title": "Batman Odyssey 1 B/W variant"
+    "title": "Batman Odyssey 1 B/W variant",
+    "grade": ""
   },
   "Batman_Vengeance_of_Bane_I_CGC_9.8_SSx3_front_cover_ut9uhv": {
     "title": "Batman Vengeance of Bane 1",
-    "series": "DC titles / Batman"
+    "series": "DC titles / Batman",
+    "grade": ""
   },
   "N._T._Titans_2_CGC_9.8_SS_front_cover_uckibe": {
     "title": "New Teen Titans 2",
@@ -2373,11 +2398,13 @@
   },
   "Shazam_1_2_CGC_9.6_SS_O_Neil_front_cover_kvmijg": {
     "title": "Shazam 1",
-    "series": "DC titles / Shazam"
+    "series": "DC titles / Shazam",
+    "grade": ""
   },
   "Shazam_1_CGC_9.6_SS_O_Neil_1_front_cover_h4o26u": {
     "title": "Shazam 1",
-    "series": "DC titles / Shazam"
+    "series": "DC titles / Shazam",
+    "grade": ""
   },
   "Captain_America_286_Front_cover_yaact4": {
     "title": "Captain America 286 Canadian variant"
@@ -2396,7 +2423,8 @@
     "issue": 1002
   },
   "Inhuman_1_SC_var_CGC_9.8_SSx4_lobj6h": {
-    "title": "Inhuman 1 1:75 Campbell variant"
+    "title": "Inhuman 1 1:75 Campbell variant",
+    "grade": ""
   },
   "Journey_into_Mystery_103_CGC_8.0_SSx2_front_cover_pmgyjz": {
     "grade": ""
@@ -2429,6 +2457,81 @@
     "grade": ""
   },
   "X-Men_160_CGC_9.6_SS_front_cover_qxsn0x": {
+    "grade": ""
+  },
+  "Avengers_9_CGC_9.0_iibalb": {
+    "grade": ""
+  },
+  "Avengers_29_CGC_9.0_SS_front_cover_vwy7ad": {
+    "grade": ""
+  },
+  "Avengers_38_CGC_9.4_SS_front_cover_exyygn": {
+    "grade": ""
+  },
+  "Avengers_46_CGC_9.6_SS_front_cover_nv3aid": {
+    "grade": ""
+  },
+  "Avengers_50_CGC_9.4_SSx2_front_cover_r4ltvq": {
+    "grade": ""
+  },
+  "Avengers_57_CGC_9.4_front_cover_beawgh": {
+    "grade": ""
+  },
+  "Avengers_60_CGC_9.6_SSx2_front_cover_whp0qo": {
+    "grade": ""
+  },
+  "Avengers_63_CGC_9.6_SS_front_cover_c8n9vo": {
+    "grade": ""
+  },
+  "Avengers_68_CGC_9.6_SSx2_front_cover_fezrtp": {
+    "grade": ""
+  },
+  "Avengers_68_CGC_9.6_SSx2_front_cover_zejxsk": {
+    "grade": ""
+  },
+  "Daredevil_12_CGC_8.5_SS_front_cover_cf4yt4": {
+    "grade": ""
+  },
+  "Daredevil_15_CGC_9.6_SS_front_cover_kdvpg9": {
+    "grade": ""
+  },
+  "Daredevil_81_CGC_9.6_SS_mzqolt": {
+    "grade": ""
+  },
+  "Dazzler_1_Pr_Error_var_CGC_9.8_SS_isquzq": {
+    "grade": ""
+  },
+  "Batman_Family_6_CGC_9.4_SS_arxidr": {
+    "grade": ""
+  },
+  "DC_Comics_Presents_26_CGC_9.8_SSx3_front_cover_bipkce": {
+    "grade": ""
+  },
+  "DC_Comics_Presents_27_CGC_9.8_Front_cover_qem1rl": {
+    "grade": ""
+  },
+  "Green_Lantern_76_CGC_9.0_SS_gqawrc": {
+    "grade": ""
+  },
+  "Green_Lantern_89_CGC_9.8_SS_hvqcqz": {
+    "grade": ""
+  },
+  "Superman_249_CGC_9.6_SS_xrrpwk": {
+    "grade": ""
+  },
+  "Godzilla_1_CGC_9.8_SS_hwmv4v": {
+    "grade": ""
+  },
+  "Hero_for_Hire_1_CGC_9.2_SS_front_cover_snldff": {
+    "grade": ""
+  },
+  "Iron_Man_170_CGC_9.8_SSx3_front_cover_fec3bp": {
+    "grade": ""
+  },
+  "X-Men_221_CGC_9.8_SS_front_cover_abbmii": {
+    "grade": ""
+  },
+  "X-Men_222_CGC_9.8_SS_front_cover_nubqnt": {
     "grade": ""
   }
 }
