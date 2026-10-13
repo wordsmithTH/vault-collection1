@@ -165,6 +165,12 @@
         if (!r.ok) throw new Error('API responded ' + r.status);
         return r.json();
       })
+      .then(function (list) {
+        // A 200 response that is an error object or an empty list is not usable:
+        // treat it like a failed call so the stored data.json takes over.
+        if (!Array.isArray(list) || list.length === 0) throw new Error('API returned no usable list');
+        return list;
+      })
       .catch(function () {
         return fetch('data.json').then(function (r) { return r.json(); });
       });
