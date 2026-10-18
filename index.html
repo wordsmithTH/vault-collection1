@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Vault — Comic Collection</title>
-<meta name="description" content="A private vault of 752 collected comics — CGC-graded keys, signature series, and unsorted finds.">
+<meta name="description" content="A private vault of 699 collected comics — CGC-graded keys, signature series, and unsorted finds.">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="fan.css">
 </head>
 <body>
 
@@ -14,13 +15,28 @@
   <div class="header-top">
     <div class="header-copy">
       <h1 class="title">The Vault<br><em>Comic Collection</em></h1>
-      <p class="dek">Every book that's passed through the collection, catalogued in the order it arrived. Some carry full CGC records — grade, signature, variant. Others are fresh off the scanner and still waiting on a proper entry.</p>
       <div class="header-stats">
         <div class="stat"><b id="stat-total">—</b><span>Total Books</span></div>
         <div class="stat"><b id="stat-catalogued">—</b><span>Catalogued</span></div>
       </div>
     </div>
-    <a class="hero-book" id="hero-book" href="#inquire">
+    <div class="fan-wrap" id="hero-fan">
+      <div class="fan">
+        <button type="button" class="fan-card" style="--r:-35deg" aria-label="Amazing Spider-Man #129, CGC 9.8, copy 1 of 6"><img src="fan-asm129-1.jpg" alt="Amazing Spider-Man #129 CGC 9.8, copy 1" loading="lazy"></button>
+        <button type="button" class="fan-card" style="--r:-21deg" aria-label="Amazing Spider-Man #129, CGC 9.8, copy 2 of 6"><img src="fan-asm129-3.jpg" alt="Amazing Spider-Man #129 CGC 9.8, copy 2" loading="lazy"></button>
+        <button type="button" class="fan-card" style="--r:-7deg" aria-label="Amazing Spider-Man #129, CGC 9.8, copy 3 of 6"><img src="fan-asm129-4.jpg" alt="Amazing Spider-Man #129 CGC 9.8, copy 3" loading="lazy"></button>
+        <button type="button" class="fan-card" style="--r:7deg" aria-label="Amazing Spider-Man #129, CGC 9.8, copy 4 of 6"><img src="fan-asm129-5.jpg" alt="Amazing Spider-Man #129 CGC 9.8, copy 4" loading="eager"></button>
+        <button type="button" class="fan-card" style="--r:21deg" aria-label="Amazing Spider-Man #129, CGC 9.8, copy 5 of 6"><img src="fan-asm129-6.jpg" alt="Amazing Spider-Man #129 CGC 9.8, copy 5" loading="eager"></button>
+        <button type="button" class="fan-card" style="--r:35deg" aria-label="Amazing Spider-Man #129, CGC 9.8, copy 6 of 6"><img src="fan-asm129-2.jpg" alt="Amazing Spider-Man #129 CGC 9.8, copy 6" loading="eager"></button>
+      </div>
+      <div class="fan-caption">
+        <span class="hero-tag">Featured</span>
+        <div class="fan-title">Amazing Spider-Man #129</div>
+        <div class="fan-sub">Six copies · all CGC 9.8 · 1st Punisher &amp; Jackal</div>
+      </div>
+    </div>
+    <!-- old single-book showcase kept hidden so script.js still finds its elements -->
+        <a style="display:none" aria-hidden="true" tabindex="-1" class="hero-book" id="hero-book" href="#inquire">
       <div class="hero-frame">
         <img id="hero-img" src="" alt="">
       </div>
@@ -108,5 +124,8 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+(function(){var c=document.querySelectorAll(".fan-card");c.forEach(function(b){b.addEventListener("click",function(){var up=b.classList.contains("is-up");c.forEach(function(x){x.classList.remove("is-up")});if(!up)b.classList.add("is-up");});});})();
+</script>
 </body>
 </html>

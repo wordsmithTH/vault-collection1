@@ -1,0 +1,49 @@
+/* Featured hand: six copies of Amazing Spider-Man #129 CGC 9.8, fanned like a hand of cards */
+.fan-wrap { display: block; width: min(100%, 520px); margin: 0 auto; }
+.fan {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.98;
+  margin: 0 auto;
+}
+.fan-card {
+  position: absolute;
+  left: 32%;
+  bottom: 9%;
+  width: 36%;
+  aspect-ratio: 0.64;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform-origin: 50% 100%;
+  transform: rotate(var(--r));
+  transition: transform .22s ease, filter .22s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .45));
+  -webkit-tap-highlight-color: transparent;
+}
+.fan-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.fan-card:hover,
+.fan-card:focus-visible,
+.fan-card.is-up {
+  transform: rotate(var(--r)) translateY(-9%);
+  z-index: 20;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .6));
+  outline: none;
+}
+.fan-caption { text-align: center; margin-top: .4rem; position: relative; z-index: 1; }
+.fan-caption .hero-tag { display: inline-block; margin-bottom: .2rem; }
+.fan-caption .fan-title { font-weight: 600; }
+.fan-caption .fan-sub { opacity: .75; font-size: .85em; }
+@media (max-width: 520px) {
+  .fan { aspect-ratio: 1 / 1.02; }
+  .fan-card { width: 40%; left: 30%; }
+}
+@media (prefers-reduced-motion: reduce) { .fan-card { transition: none; } }
