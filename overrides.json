@@ -1288,10 +1288,12 @@
     "title": "Daredevil 5"
   },
   "1762955463449_erqoa5": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.008
   },
   "1762955473218_pknv3w": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.009
   },
   "1762955482218_t34w06": {
     "title": "Amazing Spider-Man 36"
@@ -1322,7 +1324,8 @@
   },
   "1762997519641_ttp5kt": {
     "grade": "",
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.001
   },
   "1762997522429_cvi65p": {
     "series": "X-Men",
@@ -1388,7 +1391,8 @@
     "title": "Tales of Suspense 95"
   },
   "1776050489760_tsd8x9": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.007
   },
   "1776050497974_jkt2sw": {
     "title": "Daredevil 6"
@@ -1409,7 +1413,8 @@
     "title": "Amazing Spider-Man 43"
   },
   "1776689360620_eh7ywh": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.005
   },
   "1778054371120_edb1c7": {
     "series": "DC titles / Shazam",
@@ -1692,7 +1697,8 @@
     "title": "Journey into Mystery 124"
   },
   "20231031_135851_yuzotx": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.012
   },
   "20231031_140037_semnxp": {
     "series": "DC titles / Justice League of America",
@@ -1950,7 +1956,8 @@
     "title": "Spider-Man and His Amazing Friends 1"
   },
   "20260527_085914_ylk7zf": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.003
   },
   "20260530_100835_cm4lnr": {
     "title": "Avengers 66"
@@ -1989,7 +1996,8 @@
     "title": "Strange Tales 165"
   },
   "20260616_074540_vzsgnn": {
-    "title": "Amazing Spider-Man 129"
+    "title": "Amazing Spider-Man 129",
+    "issue": 129.004
   },
   "20260619_090154_n13n30": {
     "series": "Tales of Suspense",
@@ -2004,7 +2012,8 @@
   },
   "ASM_129_CGC_9.4_SSx4_front_cover_qypznc": {
     "title": "Amazing Spider-Man 129",
-    "grade": ""
+    "grade": "",
+    "issue": 129.011
   },
   "ASM_195_CGC_9.8_SSx2_front_cover_slguxx": {
     "title": "Amazing Spider-Man 195",
@@ -2374,11 +2383,13 @@
   },
   "Amazing_Spider-Man_129_qsqqrs": {
     "title": "Amazing Spider-Man 129",
-    "grade": ""
+    "grade": "",
+    "issue": 129.002
   },
   "Amazing_Spider-Man_129_bamftw": {
     "title": "Amazing Spider-Man 129",
-    "grade": ""
+    "grade": "",
+    "issue": 129.01
   },
   "Journey_into_Mystery_Annual_1_ovpins": {
     "title": "Journey into Mystery Annual 1",
@@ -2393,5 +2404,10 @@
     "title": "X-Men 61",
     "grade": "",
     "series": "X-Men"
+  },
+  "Amazing_Spider-Man_129_retzep": {
+    "title": "Amazing Spider-Man 129",
+    "grade": "",
+    "issue": 129.006
   }
 }
