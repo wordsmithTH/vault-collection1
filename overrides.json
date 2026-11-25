@@ -419,8 +419,9 @@
     "title": "Tales to Astonish 95"
   },
   "1677305454819_xleuh7": {
-    "series": "DC titles / Omega Men",
-    "title": "Omega Men 3"
+    "series": "DC titles / Various DC titles",
+    "title": "Omega Men 3",
+    "issue": 3
   },
   "1677908047672_cdcp9b": {
     "title": "Amazing Spider-Man 32"
@@ -644,8 +645,9 @@
     "title": "Avengers 40"
   },
   "1693927494731_xeaee3": {
-    "series": "DC titles / Steel",
-    "title": "Steel: the Indestructible Man 1"
+    "series": "DC titles / Various DC titles",
+    "title": "Steel: the Indestructible Man 1",
+    "issue": 4
   },
   "1693927510203_mtqdtn": {
     "title": "Daredevil 67"
@@ -1528,8 +1530,9 @@
     "title": "Voltron 1"
   },
   "20190426_203154_h59jnp": {
-    "series": "DC titles / Firestorm",
-    "title": "Firestorm 1"
+    "series": "DC titles / Various DC titles",
+    "title": "Firestorm 1",
+    "issue": 2
   },
   "20190426_204453_f5n6na": {
     "series": "DC titles / Batman",
@@ -1707,8 +1710,9 @@
     "issue": 14
   },
   "20231027_213854_npoyfy": {
-    "series": "DC titles / Super-Team Family",
-    "title": "Super-Team Family 2"
+    "series": "DC titles / Various DC titles",
+    "title": "Super-Team Family 2",
+    "issue": 5
   },
   "20231031_134339_ix0vwm": {
     "title": "Amazing Spider-Man 62"
@@ -2394,7 +2398,7 @@
   },
   "Dazzler_1_Pr_Error_var_CGC_9.8_SS_isquzq": {
     "grade": "",
-    "title": "Dazzler 1 Pr Error",
+    "title": "Dazzler 1 print error variant",
     "series": "Various Marvel titles",
     "issue": 10
   },
@@ -2469,5 +2473,10 @@
     "title": "Man-Thing 1",
     "series": "Various Marvel titles",
     "issue": 13
+  },
+  "Booster_Gold_1_Canadian_variant_front_tzaylj": {
+    "title": "Booster Gold 1 Canadian variant",
+    "series": "DC titles / Various DC titles",
+    "issue": 1
   }
 }
