@@ -96,6 +96,29 @@
     return { series: series, issue: issue };
   }
 
+
+  // ---------- Stan Lee signed badge (overrides.json: "stan": true) ----------
+  function stanBadge() {
+    var w = 84, h = 28, cx = w / 2, cy = h / 2, rx = w / 2 - 6, ry = h / 2 - 5, st = '';
+    for (var a = 0; a < 360; a += 24) {
+      var x = cx + rx * Math.cos(a * Math.PI / 180), y = cy + ry * Math.sin(a * Math.PI / 180);
+      st += '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" font-size="6" text-anchor="middle" dominant-baseline="central" fill="#a8231f">\u2605</text>';
+    }
+    var el = document.createElement('span');
+    el.className = 'stan-badge';
+    el.title = 'Signed by Stan Lee';
+    el.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '" aria-label="Signed by Stan Lee">' +
+      '<defs><radialGradient id="stanGrad" cx=".5" cy=".4"><stop offset="0" stop-color="#fff0b0"/><stop offset="1" stop-color="#d9a21b"/></radialGradient></defs>' +
+      '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + (w / 2 - 2) + '" ry="' + (h / 2 - 2) + '" fill="url(#stanGrad)" stroke="#7a1414" stroke-width="2"/>' +
+      st + '<text x="' + cx + '" y="' + (cy + 1) + '" font-size="10" font-weight="900" font-family="Georgia,serif" fill="#7a1414" text-anchor="middle" dominant-baseline="central" letter-spacing=".5">STAN LEE</text></svg>';
+    return el;
+  }
+  (function () {
+    var st = document.createElement('style');
+    st.textContent = '.stan-badge{display:inline-flex;vertical-align:middle;margin-left:8px;line-height:0}.stan-badge svg{display:block}.meta-row{align-items:center}';
+    document.head.appendChild(st);
+  })();
+
   var UNCATALOGUED = 'Uncatalogued Scans';
 
   // ---------- featured hero book ----------
@@ -201,6 +224,7 @@
     if (ov.grade != null) c.grade = ov.grade;
     if (ov.ss != null) c.ss = ov.ss;
     if (ov.ssCount != null) c.ssCount = ov.ssCount;
+    if (ov.stan) c.stan = true;
   }
 
   Promise.all([loadData(), loadOverrides()])
@@ -292,7 +316,7 @@
 
     var matches = state.all.filter(function (c) {
       if (!q) return true;
-      var hay = (c.title || '') + ' ' + c.series + ' ' + c.no + ' ' + (c.grade || '');
+      var hay = (c.title || '') + ' ' + c.series + ' ' + c.no + ' ' + (c.grade || '') + (c.stan ? ' stan lee signed' : '');
       return hay.toLowerCase().indexOf(q) !== -1;
     });
 
@@ -406,6 +430,8 @@
       metaRow.appendChild(sTag);
     }
 
+    if (c.stan) metaRow.appendChild(stanBadge());
+
     card.appendChild(frame);
     card.appendChild(label);
     card.appendChild(metaRow);
@@ -471,6 +497,7 @@
       s.textContent = c.ssCount ? 'Signature ×' + c.ssCount : 'Signature Series';
       els.lbTags.appendChild(s);
     }
+    if (c.stan) els.lbTags.appendChild(stanBadge());
     if (!c.title) {
       var u = document.createElement('span');
       u.textContent = 'Not yet catalogued';
