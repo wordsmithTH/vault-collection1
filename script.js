@@ -115,7 +115,7 @@
   }
   (function () {
     var st = document.createElement('style');
-    st.textContent = '.stan-badge{display:inline-flex;vertical-align:middle;margin-left:8px;line-height:0}.stan-badge svg{display:block}.meta-row{align-items:center}';
+    st.textContent = '.stan-badge{display:inline-flex;vertical-align:middle;margin-left:8px;line-height:0}.stan-badge svg{display:block}.meta-row{align-items:center}.cert-link{display:inline-block;margin-left:10px;font:12px/1.4 Georgia,serif;letter-spacing:.03em;color:#e8b83a;text-decoration:none;border-bottom:1px dotted #e8b83a;vertical-align:middle}.cert-plain{border-bottom:0;opacity:.85}';
     document.head.appendChild(st);
   })();
 
@@ -225,6 +225,7 @@
     if (ov.ss != null) c.ss = ov.ss;
     if (ov.ssCount != null) c.ssCount = ov.ssCount;
     if (ov.stan) c.stan = true;
+    if (ov.cert) { c.cert = ov.cert; c.certType = ov.certType || 'CGC'; }
   }
 
   Promise.all([loadData(), loadOverrides()])
@@ -316,7 +317,7 @@
 
     var matches = state.all.filter(function (c) {
       if (!q) return true;
-      var hay = (c.title || '') + ' ' + c.series + ' ' + c.no + ' ' + (c.grade || '') + (c.stan ? ' stan lee signed' : '');
+      var hay = (c.title || '') + ' ' + c.series + ' ' + c.no + ' ' + (c.grade || '') + (c.stan ? ' stan lee signed' : '') + (c.cert ? ' ' + c.cert : '');
       return hay.toLowerCase().indexOf(q) !== -1;
     });
 
@@ -498,6 +499,17 @@
       els.lbTags.appendChild(s);
     }
     if (c.stan) els.lbTags.appendChild(stanBadge());
+    if (c.cert) {
+      var cl = document.createElement(c.certType === 'CGC' ? 'a' : 'span');
+      cl.className = 'cert-link' + (c.certType === 'CGC' ? '' : ' cert-plain');
+      cl.textContent = c.certType + ' cert ' + c.cert + (c.certType === 'CGC' ? ' \u2197' : '');
+      if (c.certType === 'CGC') {
+        cl.href = 'https://www.cgccomics.com/certlookup/' + encodeURIComponent(c.cert) + '/';
+        cl.target = '_blank';
+        cl.rel = 'noopener';
+      }
+      els.lbTags.appendChild(cl);
+    }
     if (!c.title) {
       var u = document.createElement('span');
       u.textContent = 'Not yet catalogued';
